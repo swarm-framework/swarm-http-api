@@ -13,16 +13,23 @@ endif()
 # Includes
 include_directories(
     ../Sources  # Project sources
+    ${cxx-logs-INCLUDE}         # Include cxx-log 
+    ${swarm-commons_INCLUDE}   # Include Swarm commons
     ${PROJECT_SOURCE_DIR}/Dependencies/volatile/${CATCH_VERSION} # catch directory
 )
 
 # Add sources files
 set (${PROJECT_NAME}_TEST_SOURCES
     main.cxx
+    swarm/http/message/HTTPRequestTest.cxx
+    swarm/http/message/HTTPResponseTest.cxx
 )
 
 # Create create executable
 add_executable(${PROJECT_NAME}Tests ${${PROJECT_NAME}_TEST_SOURCES})
+target_link_libraries(${PROJECT_NAME}Tests 
+    ${PROJECT_NAME}
+)
 
 # Register test
 add_test(${PROJECT_NAME}Tests ${PROJECT_NAME}Tests)

@@ -30,6 +30,8 @@
 
 # CMake
 build
+build-report
+cmake-build-debug
 Dependencies/volatile/**/*
 
 # Kdevelop
