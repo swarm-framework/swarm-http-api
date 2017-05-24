@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Damien Giron <contact@creabox.net>
+ * Copyright 2017 Dami <contact@damiengiron.me>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +14,16 @@
  * limitations under the License.
  *
  */
-#include <iostream>
 
-int main(int argc, char * argv []) {
-    std::cout << "Hello, world !" << std::endl;
+#include "HTTPStringStream.hxx"
+
+namespace swarm {
+    namespace http {
+        
+        // Constructor with string
+        HTTPStringStream::HTTPStringStream(const std::string &str) : sstream_(str) {}
+
+        // Read method
+        std::streamsize HTTPStringStream::read(char *s, std::streamsize n) { return sstream_.readsome(s, n); }
+    }
 }
