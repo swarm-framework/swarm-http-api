@@ -143,5 +143,11 @@ namespace swarm {
         
         // X-Powered-By header
         const HTTPHeader HTTPHeader::X_POWERED_BY = HTTPHeader{"X-Powered-By"};
+        
+        // Override ostream
+        std::ostream & operator<<(std::ostream & os, const HTTPHeader & header) {
+            os << header.key();
+            return os;
+        }
     }
 }

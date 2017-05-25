@@ -17,15 +17,37 @@
 
 #include "HTTPMethod.hxx"
 
+#include <map>
+
 namespace swarm {
     namespace http {
 
-        // Operator egual
+        // Operator eguals
         HTTPMethod & HTTPMethod::operator=(const HTTPMethod & method) {
                 this->name_ = method.name_;
                 this->bodyAllowed_ = method.bodyAllowed_;
 
                 return *this;
+        }
+
+        // Get method form string
+        HTTPMethod HTTPMethod::get(const std::string & method) {
+            static std::map<std::string, HTTPMethod> methods_{
+                {GET.name(), GET},
+                {POST.name(), POST},
+                {PUT.name(), PUT},
+                {DELETE.name(), DELETE},
+                {HEAD.name(), HEAD},
+                {OPTIONS.name(), OPTIONS},
+                {PATCH.name(), PATCH}
+            };
+
+            auto it = methods_.find(method);
+            if (it == methods_.end()) {
+                return HTTPMethod{method, false};
+            } else {
+                return it->second;
+            }
         }
 
         // Define GET method
@@ -48,5 +70,12 @@ namespace swarm {
         
         // Define PATCH method
         const HTTPMethod HTTPMethod::PATCH{"PATCH"};
+        
+        
+        // Overide ostream
+        std::ostream & operator<<(std::ostream & os, const HTTPMethod & method) {
+            os << method.name();
+            return os;
+        }
     }
 }

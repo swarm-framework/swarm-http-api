@@ -20,6 +20,7 @@
 
 #include "HTTPStream.hxx"
 #include <sstream>
+#include <memory>
 
 namespace swarm {
     namespace http {
@@ -31,7 +32,11 @@ namespace swarm {
             /// \brief string stream
             std::stringstream sstream_;
 
-          public:
+        public:
+            ///\brief Constructor with Stringstream
+            /// \param str Stringstream
+            HTTPStringStream(std::stringstream && stringstream);
+            
             ///\brief Constructor with string
             /// \param str String used like a stream
             HTTPStringStream(const std::string &str);
@@ -39,6 +44,18 @@ namespace swarm {
           public:
             // Overide read
             virtual std::streamsize read(char *s, std::streamsize n) override;
+            
+        public:
+            
+            /// \brief Create stream pointer form string stream
+            /// \param stringstream Stream to move
+            /// \return Stream pointer
+            static std::shared_ptr<HTTPStream> get(std::stringstream && stringstream);
+            
+            /// \brief Create stream pointer form string
+            /// \param str String
+            /// \return Stream pointer
+            static std::shared_ptr<HTTPStream> get(const std::string & str);
         };
     }
 }

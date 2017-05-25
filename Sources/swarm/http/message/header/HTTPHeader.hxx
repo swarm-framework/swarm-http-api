@@ -161,6 +161,9 @@ namespace swarm {
             /// \brief X-Powered-By header
             static const HTTPHeader X_POWERED_BY;
         };
+        
+        // Override ostream
+        std::ostream & operator<<(std::ostream & os, const HTTPHeader & header);
     }
 }
 

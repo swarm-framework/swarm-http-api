@@ -21,9 +21,22 @@ namespace swarm {
     namespace http {
         
         // Constructor with string
+        HTTPStringStream::HTTPStringStream(std::stringstream && stringstream) : sstream_(std::move(stringstream)) {}
+        
+        // Constructor with string
         HTTPStringStream::HTTPStringStream(const std::string &str) : sstream_(str) {}
 
         // Read method
         std::streamsize HTTPStringStream::read(char *s, std::streamsize n) { return sstream_.readsome(s, n); }
+        
+        // Helper stringstream
+        std::shared_ptr<HTTPStream> HTTPStringStream::get(std::stringstream && stringstream) {
+            return std::shared_ptr<HTTPStream>(new HTTPStringStream{std::move(stringstream)});
+        }
+        
+        // Helper string
+        std::shared_ptr<HTTPStream> HTTPStringStream::get(const std::string & str) {
+            return std::shared_ptr<HTTPStream>(new HTTPStringStream{str});
+        }
     }
 }

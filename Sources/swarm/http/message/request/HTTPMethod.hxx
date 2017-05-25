@@ -73,29 +73,37 @@ namespace swarm {
                 return bodyAllowed_;
             }
             
+            /// \brief Get method form string
+            /// \param method String containing method
+            /// \return HTTPMethod
+            static HTTPMethod get(const std::string & method);
+            
         public:
             
-            /// \brief Define GET method
+            /// \breif Define GET method
             static const HTTPMethod GET;
             
-            /// \brief Define POST method
+            /// \breif Define POST method
             static const HTTPMethod POST;
             
-            /// \brief Define PUT method
+            /// \breif Define PUT method
             static const HTTPMethod PUT;
             
-            /// \brief Define DELETE method
+            /// \breif Define DELETE method
             static const HTTPMethod DELETE;
             
-            /// \brief Define HEAD method
+            /// \breif Define HEAD method
             static const HTTPMethod HEAD;
             
-            /// \brief Define OPTIONS method
+            /// \breif Define OPTIONS method
             static const HTTPMethod OPTIONS;
             
-            /// \brief Define PATCH method
+            /// \breif Define PATCH method
             static const HTTPMethod PATCH;
         };
+        
+        // Overide ostream
+        std::ostream & operator<<(std::ostream & os, const HTTPMethod & method);
     }
 }
 

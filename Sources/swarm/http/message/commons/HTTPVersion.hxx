@@ -21,6 +21,8 @@
 #include <ostream>
 #include <string>
 
+#include <boost/bimap.hpp>
+
 namespace swarm {
     namespace http {
 
@@ -37,20 +39,22 @@ namespace swarm {
             HTTP20
         };
 
-        namespace HTTPVersions {
+        struct HTTPVersions {
 
+            static const boost::bimap<HTTPVersion, std::string> &httpVersionLabel();
+            
             /// \brief Get label from HTTPVersion
             /// \return String containing label or UNKNOWN
-            std::string label(HTTPVersion version);
+            static std::string label(HTTPVersion version);
 
             /// \brief Get HTTPVersion from a string or throw runtime exception
             /// \param str STring containing HTTPVersion
             /// \return HTTPVersion or std::runtime_error
-            HTTPVersion get(const std::string &str);
-        }
+            static HTTPVersion get(const std::string &str);
+        };
 
         // Override ostream for HTTPVersion
-        std::ostream &operator<<(std::ostream &os, const HTTPVersion &version);
+        std::ostream &operator<<(std::ostream &os,  HTTPVersion const &version);
     }
 }
 

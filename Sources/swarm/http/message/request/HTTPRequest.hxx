@@ -44,7 +44,7 @@ namespace swarm {
             std::shared_ptr<network::IPAddress> serverAddress_;
 
             /// \brief HTTP method
-            const HTTPMethod method_;
+            HTTPMethod method_;
 
             /// \brief Request path
             std::string path_;
@@ -65,7 +65,7 @@ namespace swarm {
             /// \brief Move constructor
             /// \param other Other object
             HTTPRequest(HTTPRequest &&other)
-                : version_(other.version_), serverAddress_(other.serverAddress_), method_(std::move(other.method_)),
+                : version_(other.version_), serverAddress_(other.serverAddress_), method_(other.method_),
                   path_(std::move(other.path_)), uri_(std::move(other.uri_)),
                   queryParams_(std::move(other.queryParams_)), 
                   headers_(std::move(other.headers_)), body_(other.body_) {}
@@ -80,7 +80,7 @@ namespace swarm {
             /// \param queryParams All query params
             /// \param headers Headers
             HTTPRequest(HTTPVersion version, std::shared_ptr<network::IPAddress> serverAddress,
-                        const HTTPMethod method, const std::string &path, const std::string uri,
+                        const HTTPMethod & method, const std::string &path, const std::string uri,
                         const std::map<std::string, std::shared_ptr<HTTPParam>> &queryParams,
                         const std::map<HTTPHeader, std::string> &headers,
                         std::shared_ptr<HTTPBody> body
@@ -101,9 +101,12 @@ namespace swarm {
 
             /// \return Request path
             const std::string &path() const { return path_; }
-
+            
             /// \return URI string
             const std::string &uri() const { return uri_; }
+            
+            /// \return Request headers
+            const std::map<HTTPHeader, std::string>& headers() const { return headers_; }
 
             /// \return all query parameters as a map
             const std::map<std::string, std::shared_ptr<HTTPParam>> &queryParams() const { return queryParams_; }

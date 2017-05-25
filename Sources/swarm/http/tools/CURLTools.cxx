@@ -40,7 +40,7 @@ namespace swarm {
             if (converted) {
                 std::string result{converted};
                 curl_free(converted);
-                return std::move(result);
+                return result;
             } else {
                 CURLTools::LOGGER_.log(cxxlog::Level::FINE, "Unable to encode '%1%'", str);
                 return str;
@@ -62,7 +62,7 @@ namespace swarm {
             if (decoded) {
                 std::string result{decoded};
                 curl_free(decoded);
-                return std::move(result);
+                return result;
             } else {
                 CURLTools::LOGGER_.log(cxxlog::Level::FINE, "Unable to decode '%1%'", str);
                 return std::string{};

@@ -2,10 +2,11 @@
 # Add sources files
 set (${PROJECT_NAME}_SOURCES
 
-    swarm/http/message/commons/HTTPVersion.cxx swarm/http/message/commons/HTTPVersion.hxx
-    swarm/http/message/commons/HTTPParam.cxx swarm/http/message/commons/HTTPParam.hxx
-
-    swarm/http/message/header/HTTPHeader.cxx swarm/http/message/header/HTTPHeader.hxx
+    swarm/http/message/commons/HTTPVersion.cxx swarm/http/message/commons/HTTPVersion.hxx 
+    swarm/http/message/commons/HTTPParam.cxx swarm/http/message/commons/HTTPParam.hxx 
+    
+    swarm/http/message/header/HTTPHeader.cxx swarm/http/message/header/HTTPHeader.hxx 
+    swarm/http/message/header/HTTPHeaders.cxx swarm/http/message/header/HTTPHeaders.hxx
 
     swarm/http/stream/HTTPStream.hxx
     swarm/http/stream/HTTPStringStream.cxx swarm/http/stream/HTTPStringStream.hxx

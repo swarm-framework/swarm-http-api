@@ -29,7 +29,7 @@ namespace swarm {
     namespace http {
 
         class HTTPRequest;
-        class HTTPParam;
+        struct HTTPParam;
         class HTTPBody;
         namespace network {
             class IPAddress;
@@ -77,7 +77,7 @@ namespace swarm {
             /// \brief Set HTTP method
             /// \param method New HTTP method
             /// \return Current builder
-            HTTPRequestBuilder &method(const HTTPMethod method);
+            HTTPRequestBuilder &method(const HTTPMethod & method);
             
             /// \brief Set HTTP path
             /// \param path New HTTP path

@@ -17,23 +17,35 @@
 
 #include "HTTPVersion.hxx"
 
-#include <boost/bimap.hpp>
+namespace swarm {
+    namespace http {
+        
+        // Get version bimap
+        const boost::bimap<HTTPVersion, std::string> & HTTPVersions::httpVersionLabel() {
+            static std::unique_ptr<boost::bimap<HTTPVersion, std::string>> map_{};
+            if (!map_) {
+                auto map = new boost::bimap<HTTPVersion, std::string>{};
+                map->insert(boost::bimap<HTTPVersion, std::string>::value_type{HTTPVersion::HTTP10, "HTTP/1.0"});
+                map->insert(boost::bimap<HTTPVersion, std::string>::value_type{HTTPVersion::HTTP11, "HTTP/1.1"});
+                map->insert(boost::bimap<HTTPVersion, std::string>::value_type{HTTPVersion::HTTP20, "HTTP/2.0"});
+                map_.reset(map);
+            }
+            return *map_;
+        }
+        // Get label from HTTPVersion
+        std::string HTTPVersions::label(HTTPVersion version) {
+            return HTTPVersions::httpVersionLabel().left.at(version);
+        }
 
-using namespace swarm::http;
+        // Get HTTPVersion from a string or throw runtime exception
+        HTTPVersion HTTPVersions::get(const std::string &str) {
+            return HTTPVersions::httpVersionLabel().right.at(str);
+        }
 
-namespace HTTPVersions_private {
-    // Define all versions couples
-    static const boost::bimap<HTTPVersion, std::string> httpVersionLabel{};
-}
-
-// Get label from HTTPVersion
-std::string HTTPVersions::label(HTTPVersion version) { return HTTPVersions_private::httpVersionLabel.left.at(version); }
-
-// Get HTTPVersion from a string or throw runtime exception
-HTTPVersion HTTPVersions::get(const std::string &str) { return HTTPVersions_private::httpVersionLabel.right.at(str); }
-
-// Override ostream for HTTPVersion
-std::ostream &operator<<(std::ostream &os, const HTTPVersion &version) {
-    os << HTTPVersions::label(version);
-    return os;
+        // Override ostream for HTTPVersion
+        std::ostream &operator<<(std::ostream &os, HTTPVersion const &version) {
+            os << HTTPVersions::label(version);
+            return os;
+        }
+    }
 }
