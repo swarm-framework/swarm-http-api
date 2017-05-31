@@ -24,5 +24,8 @@ namespace swarm {
         
         // Define not found status
         const HTTPResponseStatus HTTPResponseStatus::NOT_FOUND{404, "Not found"};
+
+        // Define internal server error status
+        const HTTPResponseStatus HTTPResponseStatus::INTERNAL_SERVER_ERROR{500, "Internal Server Error"};
     }
 }

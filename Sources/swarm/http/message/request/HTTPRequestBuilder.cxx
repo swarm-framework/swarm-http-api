@@ -42,7 +42,7 @@ namespace swarm {
         }
 
         // Set HTTP method
-        HTTPRequestBuilder &HTTPRequestBuilder::method(std::shared_ptr<const HTTPMethod> method) {
+        HTTPRequestBuilder &HTTPRequestBuilder::method(const HTTPMethod method) {
             this->method_ = method;
             return *this;
         }

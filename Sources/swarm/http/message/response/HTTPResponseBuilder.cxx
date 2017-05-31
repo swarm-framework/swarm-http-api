@@ -23,8 +23,8 @@ namespace swarm {
     namespace http {
 
         // Build HTTP response
-        std::shared_ptr<HTTPResponse> HTTPResponseBuilder::build() {
-            return std::shared_ptr<HTTPResponse>(new HTTPResponse{version_, status_, headers_, body_});
+        HTTPResponse HTTPResponseBuilder::build() {
+            return HTTPResponse{version_, status_, headers_, body_};
         }
 
         // Add header param

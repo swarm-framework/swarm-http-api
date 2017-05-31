@@ -46,7 +46,7 @@ namespace swarm {
             std::shared_ptr<network::IPAddress> serverAddress_;
 
             /// \brief HTTP method
-            std::shared_ptr<const HTTPMethod> method_ = HTTPMethod::GET;
+            HTTPMethod method_ = HTTPMethod::GET;
             
             /// \brief Define request path
             std::string path_;
@@ -77,7 +77,7 @@ namespace swarm {
             /// \brief Set HTTP method
             /// \param method New HTTP method
             /// \return Current builder
-            HTTPRequestBuilder &method(std::shared_ptr<const HTTPMethod> method);
+            HTTPRequestBuilder &method(const HTTPMethod method);
             
             /// \brief Set HTTP path
             /// \param path New HTTP path

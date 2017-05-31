@@ -19,26 +19,34 @@
 
 namespace swarm {
     namespace http {
-        
+
+        // Operator egual
+        HTTPMethod & HTTPMethod::operator=(const HTTPMethod & method) {
+                this->name_ = method.name_;
+                this->bodyAllowed_ = method.bodyAllowed_;
+
+                return *this;
+        }
+
         // Define GET method
-        const std::shared_ptr<const HTTPMethod> HTTPMethod::GET = std::make_shared<HTTPMethod>("GET");
+        const HTTPMethod HTTPMethod::GET{"GET"};
         
         // Define POST method
-        const std::shared_ptr<const HTTPMethod> HTTPMethod::POST = std::make_shared<HTTPMethod>("POST", true);
+        const HTTPMethod HTTPMethod::POST{"POST", true};
         
         // Define PUT method
-        const std::shared_ptr<const HTTPMethod> HTTPMethod::PUT = std::make_shared<HTTPMethod>("PUT", true);
+        const HTTPMethod HTTPMethod::PUT{"PUT", true};
         
         // Define DELETE method
-        const std::shared_ptr<const HTTPMethod> HTTPMethod::DELETE = std::make_shared<HTTPMethod>("DELETE");
+        const HTTPMethod HTTPMethod::DELETE{"DELETE"};
         
         // Define HEAD method
-        const std::shared_ptr<const HTTPMethod> HTTPMethod::HEAD = std::make_shared<HTTPMethod>("HEAD");
+        const HTTPMethod HTTPMethod::HEAD{"HEAD"};
         
         // Define OPTIONS method
-        const std::shared_ptr<const HTTPMethod> HTTPMethod::OPTIONS = std::make_shared<HTTPMethod>("OPTIONS");
+        const HTTPMethod HTTPMethod::OPTIONS{"OPTIONS"};
         
         // Define PATCH method
-        const std::shared_ptr<const HTTPMethod> HTTPMethod::PATCH = std::make_shared<HTTPMethod>("PATCH");
+        const HTTPMethod HTTPMethod::PATCH{"PATCH"};
     }
 }

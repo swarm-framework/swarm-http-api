@@ -44,7 +44,7 @@ namespace swarm {
             std::shared_ptr<network::IPAddress> serverAddress_;
 
             /// \brief HTTP method
-            std::shared_ptr<const HTTPMethod> method_;
+            const HTTPMethod method_;
 
             /// \brief Request path
             std::string path_;
@@ -80,7 +80,7 @@ namespace swarm {
             /// \param queryParams All query params
             /// \param headers Headers
             HTTPRequest(HTTPVersion version, std::shared_ptr<network::IPAddress> serverAddress,
-                        std::shared_ptr<const HTTPMethod> method, const std::string &path, const std::string uri,
+                        const HTTPMethod method, const std::string &path, const std::string uri,
                         const std::map<std::string, std::shared_ptr<HTTPParam>> &queryParams,
                         const std::map<HTTPHeader, std::string> &headers,
                         std::shared_ptr<HTTPBody> body
@@ -97,7 +97,7 @@ namespace swarm {
             const network::IPAddress &serverAddress() const { return *serverAddress_; }
 
             /// \return Get request method
-            const HTTPMethod &method() const { return *method_; }
+            const HTTPMethod &method() const { return method_; }
 
             /// \return Request path
             const std::string &path() const { return path_; }

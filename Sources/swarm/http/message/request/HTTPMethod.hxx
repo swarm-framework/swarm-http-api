@@ -54,7 +54,12 @@ namespace swarm {
             /// \param method other method
             HTTPMethod(HTTPMethod && method) : name_(std::move(method.name_)), bodyAllowed_(method.bodyAllowed_) {
                 
-            } 
+            }
+
+            /// \brief Operator egual
+            /// \param method HTTP method
+            /// \return this
+            HTTPMethod &operator=(const HTTPMethod & method);
             
             /// \brief Retirve the method name
             /// \return String containing the method name
@@ -70,26 +75,26 @@ namespace swarm {
             
         public:
             
-            /// \breif Define GET method
-            static const std::shared_ptr<const HTTPMethod> GET;
+            /// \brief Define GET method
+            static const HTTPMethod GET;
             
-            /// \breif Define POST method
-            static const std::shared_ptr<const HTTPMethod> POST;
+            /// \brief Define POST method
+            static const HTTPMethod POST;
             
-            /// \breif Define PUT method
-            static const std::shared_ptr<const HTTPMethod> PUT;
+            /// \brief Define PUT method
+            static const HTTPMethod PUT;
             
-            /// \breif Define DELETE method
-            static const std::shared_ptr<const HTTPMethod> DELETE;
+            /// \brief Define DELETE method
+            static const HTTPMethod DELETE;
             
-            /// \breif Define HEAD method
-            static const std::shared_ptr<const HTTPMethod> HEAD;
+            /// \brief Define HEAD method
+            static const HTTPMethod HEAD;
             
-            /// \breif Define OPTIONS method
-            static const std::shared_ptr<const HTTPMethod> OPTIONS;
+            /// \brief Define OPTIONS method
+            static const HTTPMethod OPTIONS;
             
-            /// \breif Define PATCH method
-            static const std::shared_ptr<const HTTPMethod> PATCH;
+            /// \brief Define PATCH method
+            static const HTTPMethod PATCH;
         };
     }
 }

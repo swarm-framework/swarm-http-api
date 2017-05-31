@@ -68,11 +68,16 @@ namespace swarm {
             
             /// \brief OK status
             static const HTTPResponseStatus OK;
-            
+
             // --- 4XX --
-            
+
             /// \brief Not found status
             static const HTTPResponseStatus NOT_FOUND;
+
+            // --- 5XX --
+
+            /// \brief Internal server error status
+            static const HTTPResponseStatus INTERNAL_SERVER_ERROR;
         };
     }
 }
