@@ -79,7 +79,7 @@ namespace swarm {
         public:
             /// \brief Build HTTP response
             /// \return HTTP response or invalid smart pointer
-            HTTPResponse build();
+            std::shared_ptr<HTTPResponse> build();
         };
     }
 }

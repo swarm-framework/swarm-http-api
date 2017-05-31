@@ -13,7 +13,7 @@ endif()
 # Includes
 include_directories(
     ../Sources  # Project sources
-    ${cxx-logs-INCLUDE}         # Include cxx-log 
+    ${cxx-logs-INCLUDE}         # Include cxx-log
     ${swarm-commons_INCLUDE}   # Include Swarm commons
     ${PROJECT_SOURCE_DIR}/Dependencies/volatile/${CATCH_VERSION} # catch directory
 )
@@ -27,7 +27,7 @@ set (${PROJECT_NAME}_TEST_SOURCES
 
 # Create create executable
 add_executable(${PROJECT_NAME}Tests ${${PROJECT_NAME}_TEST_SOURCES})
-target_link_libraries(${PROJECT_NAME}Tests 
+target_link_libraries(${PROJECT_NAME}Tests
     ${PROJECT_NAME}
 )
 
