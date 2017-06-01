@@ -57,7 +57,14 @@ namespace swarm {
             this->uri_ = uri;
             return *this;
         }
-
+        
+        // Set query string
+        HTTPRequestBuilder &HTTPRequestBuilder::addQueryString(const std::string & query) {
+            this->query_ = query;
+            
+            return *this;
+        }
+        
         // Add query param to the request
         HTTPRequestBuilder &HTTPRequestBuilder::addQueryParam(std::shared_ptr<HTTPParam> param) {
             if (param) {

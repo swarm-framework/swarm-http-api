@@ -54,6 +54,9 @@ namespace swarm {
             /// \brief URI string
             std::string uri_;
             
+            /// \brief Query string
+            std::string query_;
+            
             /// \brief all query parameters
             std::map<std::string, std::shared_ptr<HTTPParam>> queryParameters_;
             
@@ -88,6 +91,11 @@ namespace swarm {
             /// \param uri URI string
             /// \return Current builder
             HTTPRequestBuilder &uri(const std::string & uri);
+            
+            /// \brief Set query string
+            /// \param query Query string
+            /// \return Current builder
+            HTTPRequestBuilder &addQueryString(const std::string & query);
             
             /// \brief Add query param to the request
             /// \param param HTTP Param 

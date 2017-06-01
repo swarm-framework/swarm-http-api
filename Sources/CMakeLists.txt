@@ -35,6 +35,7 @@ include_directories(
 add_library(${PROJECT_NAME} ${${PROJECT_NAME}_SOURCES})
 target_link_libraries(${PROJECT_NAME}
     swarm-commons
+    ${CURL_LIBRARIES}
 )
 
 # Install exec in bin directory
