@@ -4,3 +4,6 @@
 [submodule "Dependencies/swarm-commons"]
 	path = Dependencies/swarm-commons
 	url = https://github.com/swarm-framework/swarm-commons.git
+[submodule "Dependencies/swarm-mapping"]
+	path = Dependencies/swarm-mapping
+	url = https://github.com/swarm-framework/swarm-mapping.git
