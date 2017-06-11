@@ -17,7 +17,7 @@
 
 #include "HTTPParam.hxx"
 
-#include "swarm/http/tools/URIEncoding.hxx"
+#include "../../tools/URIEncoding.hxx"
 
 namespace swarm {
     namespace http {

@@ -66,8 +66,11 @@ namespace swarm {
             
             // --- 2XX --
             
-            /// \brief OK status
+            /// \brief OK status (200)
             static const HTTPResponseStatus OK;
+            
+            /// \brief No Content status (204)
+            static const HTTPResponseStatus NO_CONTENT;
 
             // --- 4XX --
 

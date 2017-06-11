@@ -21,6 +21,7 @@
 #include "HTTPResponseStatus.hxx"
 #include "../commons/HTTPVersion.hxx"
 #include "../header/HTTPHeader.hxx"
+#include <swarm/http/MediaType.hxx>
 
 #include <map>
 #include <string>
@@ -76,6 +77,11 @@ namespace swarm {
             /// \return Current builder
             HTTPResponseBuilder & body(std::shared_ptr<HTTPBody> body);
             
+            /// \brief Encode body with object and media type
+            /// \param Entity object to encode using ObjectEncoder<Body>
+            template<typename Body>
+            HTTPResponseBuilder & entity(const Body & body, MediaType mediaType);
+            
         public:
             /// \brief Build HTTP response
             /// \return HTTP response or invalid smart pointer
@@ -85,3 +91,5 @@ namespace swarm {
 }
 
 #endif // SWARM_HTTP_HTTPRESPONSEBUILDER_HXX
+
+#include "HTTPResponseBuilder.txx"

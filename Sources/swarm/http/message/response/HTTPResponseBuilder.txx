@@ -15,26 +15,17 @@
  *
  */
 
-#include "HTTPResponseStatus.hxx"
+#ifndef SWARM_HTTP_HTTPRESPONSEBUILDER_HXX
+#include "HTTPResponseBuilder.hxx"
+#endif
 
 namespace swarm {
     namespace http {
         
-        // --- 2xx ---
-        
-        // Define ok status
-        const HTTPResponseStatus HTTPResponseStatus::OK{200, "Ok"};
-        // Define ok status
-        const HTTPResponseStatus HTTPResponseStatus::NO_CONTENT{204, "No Content"};
-        
-        // --- 4xx ---
-        
-        // Define not found status
-        const HTTPResponseStatus HTTPResponseStatus::NOT_FOUND{404, "Not found"};
-
-        // --- 5xx ---
-        
-        // Define internal server error status
-        const HTTPResponseStatus HTTPResponseStatus::INTERNAL_SERVER_ERROR{500, "Internal Server Error"};
+        // Encode body with object and media type
+        template<typename Body>
+        HTTPResponseBuilder & HTTPResponseBuilder::entity(const Body & body, MediaType mediaType) {
+            return *this;
+        }
     }
 }
