@@ -38,10 +38,10 @@ add_library(swarm-http-api
 
 # Add definitions for targets
 # Values:
-#   * Debug: -DSWAM_MAPPING_DEBUG=1
-#   * Release: -DSWAM_MAPPING_DEBUG=0
-#   * other: -DSWAM_MAPPING_DEBUG=0
-target_compile_definitions(swarm-http-api  PUBLIC "SWAM_MAPPING_DEBUG=$<CONFIG:Debug>")
+#   * Debug: -DSWARM_HTTP_API_DEBUG=1
+#   * Release: -DSWARM_HTTP_API_DEBUG=0
+#   * other: -DSWARM_HTTP_API_DEBUG=0
+target_compile_definitions(swarm-http-api  PUBLIC "SWARM_HTTP_API_DEBUG=$<CONFIG:Debug>")
 
 # Generate headers:
 include(GenerateExportHeader)
