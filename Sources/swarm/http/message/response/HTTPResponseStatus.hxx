@@ -62,6 +62,13 @@ namespace swarm {
                 return reason_;
             }
             
+            /// \brief Test operator
+            /// \param other Other response status
+            /// \return True if code are same
+            bool operator==(const HTTPResponseStatus & other) {
+                return other.code_ == this->code_;;
+            }
+            
         public:
             
             // --- 2XX --
@@ -81,7 +88,20 @@ namespace swarm {
 
             /// \brief Internal server error status
             static const HTTPResponseStatus INTERNAL_SERVER_ERROR;
+            
+        public:
+            
+            /// \brief Satus from code
+            /// \param code Status code
+            /// \return HTTPResponseStatus
+            static HTTPResponseStatus fromCode(int code);
         };
+        
+        /// \brief Test operator between first and second
+        /// \param first First response status
+        /// \param second Second response status
+        /// \return True if code are same
+        bool operator==(const HTTPResponseStatus & first, const HTTPResponseStatus & second);
     }
 }
 

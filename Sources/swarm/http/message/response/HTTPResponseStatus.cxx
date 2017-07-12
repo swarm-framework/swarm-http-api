@@ -36,5 +36,15 @@ namespace swarm {
         
         // Define internal server error status
         const HTTPResponseStatus HTTPResponseStatus::INTERNAL_SERVER_ERROR{500, "Internal Server Error"};
+        
+        // Operator ==
+        bool operator==(const HTTPResponseStatus & first, const HTTPResponseStatus & second) {
+            return first == second;
+        }
+        
+        // Satus from code
+        HTTPResponseStatus HTTPResponseStatus::fromCode(int code) {
+            return HTTPResponseStatus{code, "Unknown"};
+        }
     }
 }
