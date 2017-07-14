@@ -19,6 +19,7 @@
 #define SWARM_HTTP_HTTPHEADER_HXX
 
 #include <string>
+#include <memory>
 
 namespace swarm {
     namespace http {
@@ -48,122 +49,123 @@ namespace swarm {
         public:
             
             /// \brief Access-Control-Allow-Origin header
-            static const HTTPHeader ACCESS_CONTROL_ALLOW_ORIGIN;
+            static std::shared_ptr<const HTTPHeader> ACCESS_CONTROL_ALLOW_ORIGIN;
             
             /// \brief Accept language header
-            static const HTTPHeader ACCEPT;
+            static std::shared_ptr<const HTTPHeader> ACCEPT;
             
             /// \brief Accept charset header
-            static const HTTPHeader ACCEPT_CHARSET;
+            static std::shared_ptr<const HTTPHeader> ACCEPT_CHARSET;
             
             /// \brief Accept encoding header
-            static const HTTPHeader ACCEPT_ENCODING;
+            static std::shared_ptr<const HTTPHeader> ACCEPT_ENCODING;
             
             /// \brief Accept language header
-            static const HTTPHeader ACCEPT_LANGUAGE;
+            static std::shared_ptr<const HTTPHeader> ACCEPT_LANGUAGE;
             
             /// \brief Accept Datetime header
-            static const HTTPHeader ACCEPT_DATETIME;
+            static std::shared_ptr<const HTTPHeader> ACCEPT_DATETIME;
             
             /// \brief Authorization header
-            static const HTTPHeader ACCEPT_AUTHORIZATION;
+            static std::shared_ptr<const HTTPHeader> ACCEPT_AUTHORIZATION;
             
             /// \brief Age in cache header
-            static const HTTPHeader AGE;
+            static std::shared_ptr<const HTTPHeader> AGE;
             
             /// \brief Allow header
-            static const HTTPHeader ALLOW;
+            static std::shared_ptr<const HTTPHeader> ALLOW;
             
             /// \brief Cache control header
-            static const HTTPHeader CACHE_CONTROL;
+            static std::shared_ptr<const HTTPHeader> CACHE_CONTROL;
             
             /// \brief Connection header
-            static const HTTPHeader CONNECTION;
+            static std::shared_ptr<const HTTPHeader> CONNECTION;
             
             /// \brief Cookie
-            static const HTTPHeader COOKIE;
+            static std::shared_ptr<const HTTPHeader> COOKIE;
             
             /// \brief Content disposition header
-            static const HTTPHeader CONTENT_DISPOSITION;
+            static std::shared_ptr<const HTTPHeader> CONTENT_DISPOSITION;
             
             /// \brief Content type length
-            static const HTTPHeader CONTENT_LENGTH;
+            static std::shared_ptr<const HTTPHeader> CONTENT_LENGTH;
             
             /// \brief Content location header
-            static const HTTPHeader CONTENT_LOCATION;
+            static std::shared_ptr<const HTTPHeader> CONTENT_LOCATION;
             
             /// \brief Content MD5 header
-            static const HTTPHeader CONTENT_MD5;
+            static std::shared_ptr<const HTTPHeader> CONTENT_MD5;
             
             /// \brief Content range header
-            static const HTTPHeader CONTENT_RANGE;
+            static std::shared_ptr<const HTTPHeader> CONTENT_RANGE;
             
             /// \brief ContentType header
-            static const HTTPHeader CONTENT_TYPE;
+            static std::shared_ptr<const HTTPHeader> CONTENT_TYPE;
             
             /// \brief Date header
-            static const HTTPHeader DATE;
+            static std::shared_ptr<const HTTPHeader> DATE;
             
             /// \brief Etag header
-            static const HTTPHeader ETAG;
+            static std::shared_ptr<const HTTPHeader> ETAG;
             
             /// \brief Expires header
-            static const HTTPHeader EXPIRES;
+            static std::shared_ptr<const HTTPHeader> EXPIRES;
             
             /// \brief Host header
-            static const HTTPHeader HOST;
+            static std::shared_ptr<const HTTPHeader> HOST;
             
             /// \brief Last-Modified header
-            static const HTTPHeader LAST_MODIFIED;
+            static std::shared_ptr<const HTTPHeader> LAST_MODIFIED;
             
             /// \brief Link header
-            static const HTTPHeader LINK;
+            static std::shared_ptr<const HTTPHeader> LINK;
             
             /// \brief Location header
-            static const HTTPHeader LOCATION;
+            static std::shared_ptr<const HTTPHeader> LOCATION;
             
             /// \brief Origin header
-            static const HTTPHeader ORIGIN;
+            static std::shared_ptr<const HTTPHeader> ORIGIN;
             
             /// \brief Proxy-Authorization header
-            static const HTTPHeader PROXY_AUTHORIZATION;
+            static std::shared_ptr<const HTTPHeader> PROXY_AUTHORIZATION;
             
             /// \brief Proxy-Authenticate header
-            static const HTTPHeader PROXY_AUTHENTICATE;
+            static std::shared_ptr<const HTTPHeader> PROXY_AUTHENTICATE;
             
             /// \brief Range header
-            static const HTTPHeader RANGE;
+            static std::shared_ptr<const HTTPHeader> RANGE;
             
             /// \brief Refresh header
-            static const HTTPHeader REFRESH;
+            static std::shared_ptr<const HTTPHeader> REFRESH;
             
             /// \brief Retry-after header
-            static const HTTPHeader RETRY_AFTER;
+            static std::shared_ptr<const HTTPHeader> RETRY_AFTER;
             
             /// \brief Server header
-            static const HTTPHeader SERVER;
+            static std::shared_ptr<const HTTPHeader> SERVER;
             
             /// \brief Set-cookie header
-            static const HTTPHeader SET_COOKIE;
+            static std::shared_ptr<const HTTPHeader> SET_COOKIE;
             
             /// \bief Transfert encoding header
-            static const HTTPHeader TRANSFERT_ENCODING;
+            static std::shared_ptr<const HTTPHeader> TRANSFERT_ENCODING;
             
             /// \brief User agent header
-            static const HTTPHeader USER_AGENT;
+            static std::shared_ptr<const HTTPHeader> USER_AGENT;
             
             /// \brief Via header
-            static const HTTPHeader VIA;
+            static std::shared_ptr<const HTTPHeader> VIA;
             
             /// \brief WWW-Authenticate header
-            static const HTTPHeader WWW_AUTHENTICATE;
+            static std::shared_ptr<const HTTPHeader> WWW_AUTHENTICATE;
             
             /// \brief X-Powered-By header
-            static const HTTPHeader X_POWERED_BY;
+            static std::shared_ptr<const HTTPHeader> X_POWERED_BY;
         };
         
         // Override ostream
         std::ostream & operator<<(std::ostream & os, const HTTPHeader & header);
+        std::ostream & operator<<(std::ostream & os, std::shared_ptr<const HTTPHeader> header);
     }
 }
 

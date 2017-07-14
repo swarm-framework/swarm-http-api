@@ -31,122 +31,130 @@ namespace swarm {
         }
         
         // Access-Control-Allow-Origin header
-        const HTTPHeader HTTPHeader::ACCESS_CONTROL_ALLOW_ORIGIN = HTTPHeader{"Access-Control-Allow-Origin"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::ACCESS_CONTROL_ALLOW_ORIGIN = std::make_shared<HTTPHeader>("Access-Control-Allow-Origin");
         
         // Accept language header
-        const HTTPHeader HTTPHeader::ACCEPT = HTTPHeader{"Accept"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::ACCEPT = std::make_shared<HTTPHeader>("Accept");
         
         // Accept charset header
-        const HTTPHeader HTTPHeader::ACCEPT_CHARSET = HTTPHeader{"Accept-Charset"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::ACCEPT_CHARSET = std::make_shared<HTTPHeader>("Accept-Charset");
         
         // Accept encoding header
-        const HTTPHeader HTTPHeader::ACCEPT_ENCODING = HTTPHeader{"Accept-Encoding"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::ACCEPT_ENCODING = std::make_shared<HTTPHeader>("Accept-Encoding");
         
         // Accept language header
-        const HTTPHeader HTTPHeader::ACCEPT_LANGUAGE = HTTPHeader{"Accept-Language"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::ACCEPT_LANGUAGE = std::make_shared<HTTPHeader>("Accept-Language");
         
         // Accept encoding header
-        const HTTPHeader HTTPHeader::ACCEPT_DATETIME = HTTPHeader{"Accept-Datetime"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::ACCEPT_DATETIME = std::make_shared<HTTPHeader>("Accept-Datetime");
         
         // Authorization header
-        const HTTPHeader HTTPHeader::ACCEPT_AUTHORIZATION = HTTPHeader{"Authorization"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::ACCEPT_AUTHORIZATION = std::make_shared<HTTPHeader>("Authorization");
         
         // Age in cache header
-        const HTTPHeader HTTPHeader::AGE = HTTPHeader{"Age"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::AGE = std::make_shared<HTTPHeader>("Age");
         
         // Allow header
-        const HTTPHeader HTTPHeader::ALLOW = HTTPHeader{"Allow"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::ALLOW = std::make_shared<HTTPHeader>("Allow");
         
         // Cache control header
-        const HTTPHeader HTTPHeader::CACHE_CONTROL = HTTPHeader{"Cache-Control"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::CACHE_CONTROL = std::make_shared<HTTPHeader>("Cache-Control");
         
         // Connection header
-        const HTTPHeader HTTPHeader::CONNECTION = HTTPHeader{"Connection"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::CONNECTION = std::make_shared<HTTPHeader>("Connection");
         
         // Cookie
-        const HTTPHeader HTTPHeader::COOKIE = HTTPHeader{"Cookie"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::COOKIE = std::make_shared<HTTPHeader>("Cookie");
         
         // Content disposition header
-        const HTTPHeader HTTPHeader::CONTENT_DISPOSITION = HTTPHeader{"Content-Disposition"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::CONTENT_DISPOSITION = std::make_shared<HTTPHeader>("Content-Disposition");
         
         // Content type length
-        const HTTPHeader HTTPHeader::CONTENT_LENGTH = HTTPHeader{"Content-Length"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::CONTENT_LENGTH = std::make_shared<HTTPHeader>("Content-Length");
         
         // Content MD5 header
-        const HTTPHeader HTTPHeader::CONTENT_LOCATION = HTTPHeader{"Content-Location"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::CONTENT_LOCATION = std::make_shared<HTTPHeader>("Content-Location");
         
         // Content MD5 header
-        const HTTPHeader HTTPHeader::CONTENT_MD5 = HTTPHeader{"Content-MD5"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::CONTENT_MD5 = std::make_shared<HTTPHeader>("Content-MD5");
         
         // Content range header
-        const HTTPHeader HTTPHeader::CONTENT_RANGE = HTTPHeader{"Content-Range"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::CONTENT_RANGE = std::make_shared<HTTPHeader>("Content-Range");
         
         // ContentType header
-        const HTTPHeader HTTPHeader::CONTENT_TYPE = HTTPHeader{"Content-Type"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::CONTENT_TYPE = std::make_shared<HTTPHeader>("Content-Type");
         
         // Date header
-        const HTTPHeader HTTPHeader::DATE = HTTPHeader{"Date"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::DATE = std::make_shared<HTTPHeader>("Date");
         
         // Etag header
-        const HTTPHeader HTTPHeader::ETAG = HTTPHeader{"ETag"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::ETAG = std::make_shared<HTTPHeader>("ETag");
         
         // Expires header
-        const HTTPHeader HTTPHeader::EXPIRES = HTTPHeader{"Expires"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::EXPIRES = std::make_shared<HTTPHeader>("Expires");
         
         // Host header
-        const HTTPHeader HTTPHeader::HOST = HTTPHeader{"Host"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::HOST = std::make_shared<HTTPHeader>("Host");
         
         // Last-Modified header
-        const HTTPHeader HTTPHeader::LAST_MODIFIED = HTTPHeader{"Last-Modified"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::LAST_MODIFIED = std::make_shared<HTTPHeader>("Last-Modified");
         
         // Link header
-        const HTTPHeader HTTPHeader::LINK = HTTPHeader{"Link"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::LINK = std::make_shared<HTTPHeader>("Link");
         
         // Location header
-        const HTTPHeader HTTPHeader::LOCATION = HTTPHeader{"Location"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::LOCATION = std::make_shared<HTTPHeader>("Location");
         
         // Origin header
-        const HTTPHeader HTTPHeader::ORIGIN = HTTPHeader{"Origin"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::ORIGIN = std::make_shared<HTTPHeader>("Origin");
         
         // Proxy-Authorization header
-        const HTTPHeader HTTPHeader::PROXY_AUTHORIZATION = HTTPHeader{"Proxy-Authorization"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::PROXY_AUTHORIZATION = std::make_shared<HTTPHeader>("Proxy-Authorization");
         
         // Proxy-Authenticate header
-        const HTTPHeader HTTPHeader::PROXY_AUTHENTICATE = HTTPHeader{"Proxy-Authenticate"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::PROXY_AUTHENTICATE = std::make_shared<HTTPHeader>("Proxy-Authenticate");
         
         // Range header
-        const HTTPHeader HTTPHeader::RANGE = HTTPHeader{"Range"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::RANGE = std::make_shared<HTTPHeader>("Range");
         
         // Refresh header
-        const HTTPHeader HTTPHeader::REFRESH = HTTPHeader{"Refresh"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::REFRESH = std::make_shared<HTTPHeader>("Refresh");
         
         // Retry after header
-        const HTTPHeader HTTPHeader::RETRY_AFTER = HTTPHeader{"Retry-After"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::RETRY_AFTER = std::make_shared<HTTPHeader>("Retry-After");
         
         // Server header
-        const HTTPHeader HTTPHeader::SERVER = HTTPHeader{"Server"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::SERVER = std::make_shared<HTTPHeader>("Server");
         
         // Set-cookie header
-        const HTTPHeader HTTPHeader::SET_COOKIE = HTTPHeader{"Set-Cookie"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::SET_COOKIE = std::make_shared<HTTPHeader>("Set-Cookie");
         
         // Transfert encoding header
-        const HTTPHeader HTTPHeader::TRANSFERT_ENCODING = HTTPHeader{"Transfer-Encoding"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::TRANSFERT_ENCODING = std::make_shared<HTTPHeader>("Transfer-Encoding");
         
         // User agent header
-        const HTTPHeader HTTPHeader::USER_AGENT = HTTPHeader{"User-Agent"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::USER_AGENT = std::make_shared<HTTPHeader>("User-Agent");
         
         // Proxy-Authorization header
-        const HTTPHeader HTTPHeader::VIA = HTTPHeader{"Via"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::VIA = std::make_shared<HTTPHeader>("Via");
         
         // WWW-Authenticat header
-        const HTTPHeader HTTPHeader::WWW_AUTHENTICATE = HTTPHeader{"WWW-Authenticate"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::WWW_AUTHENTICATE = std::make_shared<HTTPHeader>("WWW-Authenticate");
         
         // X-Powered-By header
-        const HTTPHeader HTTPHeader::X_POWERED_BY = HTTPHeader{"X-Powered-By"};
+        std::shared_ptr<const HTTPHeader> HTTPHeader::X_POWERED_BY = std::make_shared<HTTPHeader>("X-Powered-By");
         
         // Override ostream
         std::ostream & operator<<(std::ostream & os, const HTTPHeader & header) {
             os << header.key();
+            return os;
+        }
+                
+        // Override ostream
+        std::ostream & operator<<(std::ostream & os, std::shared_ptr<const HTTPHeader> header) {
+            if (header) {
+                os << header->key();
+            }
             return os;
         }
     }
