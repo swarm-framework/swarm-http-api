@@ -19,18 +19,28 @@
 #define SWARM_HTTP_HTTPHEADERS_HXX
 
 #include <memory>
+#include <string>
+#include <map>
+
 #include "HTTPHeader.hxx"
 
 namespace swarm {
     namespace http {
 
         /// \brief Class HTTPHeaders
-        struct HTTPHeaders {
+        class HTTPHeaders {
             
-            static std::shared_ptr<HTTPHeader> get(const std::string & key) {
-                // Use map and upper case key to store and reuse registered headers
-                return std::make_shared<HTTPHeader>(key);
-            }
+        private:
+            
+            /// \return all headers map
+            static std::map<std::string, std::shared_ptr<HTTPHeader>> & allHeaders();
+            
+        public:
+            
+            /// \brief // Get or create header from string
+            /// \param key Header key
+            /// \return Header pointer
+            static std::shared_ptr<HTTPHeader> get(const std::string & key);
         };
     }
 }
