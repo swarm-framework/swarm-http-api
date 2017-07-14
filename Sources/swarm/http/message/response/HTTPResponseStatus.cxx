@@ -39,7 +39,7 @@ namespace swarm {
         
         // Operator ==
         bool operator==(const HTTPResponseStatus & first, const HTTPResponseStatus & second) {
-            return first == second;
+            return first.code() == second.code();
         }
         
         // Satus from code
