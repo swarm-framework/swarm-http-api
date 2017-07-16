@@ -17,7 +17,7 @@
 
 #include "CURLTools.hxx"
 
-#include <cxxlog/Level.hxx>
+#include <cxx-log/Level.hxx>
 
 namespace swarm {
     namespace http {

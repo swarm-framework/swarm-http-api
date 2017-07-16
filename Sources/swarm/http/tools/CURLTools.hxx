@@ -18,7 +18,7 @@
 #ifndef SWARM_HTTP_CURLTOOLS_HXX
 #define SWARM_HTTP_CURLTOOLS_HXX
 
-#include <cxxlog/Logger.hxx>
+#include <cxx-log/Logger.hxx>
 
 #include <curl/curl.h>
 #include <string>
