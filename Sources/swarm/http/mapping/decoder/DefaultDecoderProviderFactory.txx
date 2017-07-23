@@ -24,8 +24,8 @@ namespace swarm {
         
         // Create object decoder
         template<class Provider>
-        std::shared_ptr<mapping::Decoder<mapping::ObjectDecoder>> DefaultDecoderProviderFactory<Provider>::decoder(HTTPInputStream & stream) {
-            return std::shared_ptr<mapping::Decoder<mapping::ObjectDecoder>>{};
+        std::shared_ptr<mapping::Decoder<mapping::DocumentDecoder>> DefaultDecoderProviderFactory<Provider>::decoder(HTTPInputStream & stream) {
+            return std::shared_ptr<mapping::Decoder<mapping::DocumentDecoder>>{};
         }
         
     }

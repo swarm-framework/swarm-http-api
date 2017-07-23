@@ -20,7 +20,7 @@
 
 #include <memory>
 #include <swarm/mapping/coder/Decoder.hxx>
-#include <swarm/mapping/provider/ObjectProvider.hxx>
+#include <swarm/mapping/provider/DocumentProvider.hxx>
 
 namespace swarm {
 namespace http {
@@ -33,7 +33,7 @@ namespace http {
             /// \brief Create object decoder
             /// \param stream HTTP stream
             /// \return Decoder pointer
-            virtual std::shared_ptr<mapping::Decoder<mapping::ObjectDecoder>> decoder(HTTPInputStream & stream) = 0;
+            virtual std::shared_ptr<mapping::Decoder<mapping::DocumentDecoder>> decoder(HTTPInputStream & stream) = 0;
             
             /// \brief Destructor
             virtual ~DecoderProviderFactory() {}

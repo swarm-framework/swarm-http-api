@@ -20,7 +20,7 @@
 
 #include <memory>
 #include <swarm/mapping/coder/Encoder.hxx>
-#include <swarm/mapping/provider/ObjectProvider.hxx>
+#include <swarm/mapping/provider/DocumentProvider.hxx>
 
 namespace swarm {
 namespace http {
@@ -33,7 +33,7 @@ namespace http {
             /// \brief Create object encoder
             /// \param stream HTTP stream
             /// \return Encoder pointer
-            virtual std::shared_ptr<mapping::Encoder<mapping::ObjectEncoder>> encoder(HTTPOutputStream & stream) = 0;
+            virtual std::shared_ptr<mapping::Encoder<mapping::DocumentEncoder>> encoder(HTTPOutputStream & stream) = 0;
             
             /// \brief Destructor
             virtual ~EncoderProviderFactory() {}

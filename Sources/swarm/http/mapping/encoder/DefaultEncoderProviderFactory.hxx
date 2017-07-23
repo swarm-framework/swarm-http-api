@@ -26,10 +26,11 @@ namespace swarm {
         /// \brief Class DefaultProviderFactory
         template <class Provider> class DefaultEncoderProviderFactory : public EncoderProviderFactory {
           public:
+              
             /// \brief Create object encoder
             /// \param stream HTTP stream
             /// \return Encoder pointer
-            virtual std::shared_ptr<mapping::Encoder<mapping::ObjectEncoder>>
+            virtual std::shared_ptr<mapping::Encoder<mapping::DocumentEncoder>>
             encoder(HTTPOutputStream &stream) override;
         };
     }

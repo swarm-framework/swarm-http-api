@@ -40,3 +40,5 @@ Dependencies/volatile/**/*
 
 # CLion
 .idea
+/bin/
+/.cproject
