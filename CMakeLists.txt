@@ -27,7 +27,12 @@ add_library(swarm-http-api
     Sources/swarm/http/message/header/HTTPHeaders.cxx Sources/swarm/http/message/header/HTTPHeaders.hxx
 
     Sources/swarm/http/stream/HTTPStream.hxx
-    Sources/swarm/http/stream/HTTPStringStream.cxx Sources/swarm/http/stream/HTTPStringStream.hxx
+    
+    Sources/swarm/http/stream/input/HTTPInputStream.hxx
+    Sources/swarm/http/stream/input/DefaultHTTPInputStream.cxx Sources/swarm/http/stream/input/DefaultHTTPInputStream.hxx
+    
+    Sources/swarm/http/stream/output/HTTPOutputStream.hxx
+    Sources/swarm/http/stream/output/DefaultHTTPOutputStream.cxx Sources/swarm/http/stream/output/DefaultHTTPOutputStream.hxx
 
     Sources/swarm/http/message/body/HTTPBody.cxx Sources/swarm/http/message/body/HTTPBody.hxx
 
@@ -39,6 +44,13 @@ add_library(swarm-http-api
     Sources/swarm/http/message/response/HTTPResponseBuilder.cxx Sources/swarm/http/message/response/HTTPResponseBuilder.hxx Sources/swarm/http/message/response/HTTPResponseBuilder.txx
     Sources/swarm/http/message/response/HTTPResponseStatus.cxx Sources/swarm/http/message/response/HTTPResponseStatus.hxx
 
+    Sources/swarm/http/mapping/ProviderRegistry.cxx Sources/swarm/http/mapping/ProviderRegistry.hxx
+    
+    Sources/swarm/http/mapping/encoder/EncoderProviderFactory.hxx 
+    Sources/swarm/http/mapping/encoder/DefaultEncoderProviderFactory.hxx Sources/swarm/http/mapping/encoder/DefaultEncoderProviderFactory.txx
+    
+    Sources/swarm/http/mapping/decoder/DecoderProviderFactory.hxx
+    Sources/swarm/http/mapping/decoder/DefaultDecoderProviderFactory.hxx Sources/swarm/http/mapping/decoder/DefaultDecoderProviderFactory.txx
 
     Sources/swarm/http/tools/URIEncoding.cxx Sources/swarm/http/tools/URIEncoding.hxx
     Sources/swarm/http/tools/CURLTools.cxx Sources/swarm/http/tools/CURLTools.hxx
@@ -51,6 +63,7 @@ target_include_directories(
     PRIVATE
         ${cxx-log_INCLUDE_DIR}
         ${swarm-commons_INCLUDE_DIR}
+        ${swarm-mapping_INCLUDE_DIR}
 )
 
 # Link library

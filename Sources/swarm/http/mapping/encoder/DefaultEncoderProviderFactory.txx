@@ -1,40 +1,31 @@
 /*
- * Copyright 2017 Dami <contact@damiengiron.me>
- *
+ * Copyright 2017 dami <email>
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *     http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
+ * 
  */
 
-#ifndef SWARM_HTTP_HTTPSTREAM_HXX
-#define SWARM_HTTP_HTTPSTREAM_HXX
-
-#include <ios>
-#include <cstddef>
-
-#if defined(CLANG)
-// -- FIXME Remove when clang 5.0 released --
-namespace std {
-    using byte=unsigned char;
-}
-// ------------------------------------------
-#endif
+#ifndef SWARM_HTTP_DEFAULTENCODERPROVIDERFACTORY_HXX
+#include "DefaultEncoderProviderFactory.hxx"
+#endif // SWARM_HTTP_DEFAULTENCODERPROVIDERFACTORY_HXX
 
 namespace swarm {
     namespace http {
-
-        /// \brief define stream length
-        using streamLength = unsigned long long;
+                
+        // Create object encoder
+        template<class Provider>
+        std::shared_ptr<mapping::Encoder<mapping::ObjectEncoder>> DefaultEncoderProviderFactory<Provider>::encoder(HTTPOutputStream & stream) {
+            return std::shared_ptr<mapping::Encoder<mapping::ObjectEncoder>>{};
+        }
     }
 }
-
-#endif // SWARM_HTTP_HTTPSTREAM_HXX

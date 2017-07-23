@@ -45,8 +45,6 @@ namespace swarm {
                 CURLTools::LOGGER_.log(cxxlog::Level::FINE, "Unable to encode '%1%'", str);
                 return str;
             }
-            
-            return std::string{};
         }
         
         // Unescape string

@@ -26,6 +26,7 @@ namespace swarm {
     namespace http {
 
         /// \brief Define an HTTP body for request and response
+        template<class STREAM>
         class HTTPBody {
 
           private:
@@ -33,17 +34,17 @@ namespace swarm {
             MediaType mediaType_;
 
             /// \brief Stream containing data content
-            std::shared_ptr<HTTPStream> stream_;
+            std::shared_ptr<STREAM> stream_;
 
             /// \brief Content length, negative for Chunked stream
-            HTTPStream::streamLength length_;
+            streamLength length_;
 
           public:
             /// \brief Constructor with media-type, stream and length
             /// \param mediaType Content type
             /// \param stream Stream
             /// \param length Stream length
-            HTTPBody(MediaType mediaType, std::shared_ptr<HTTPStream> stream, HTTPStream::streamLength length = -1ULL)
+            HTTPBody(MediaType mediaType, std::shared_ptr<STREAM> stream, streamLength length = -1ULL)
                 : mediaType_(mediaType), stream_(stream), length_(length) {}
 
             HTTPBody(const HTTPBody &) = delete;
@@ -58,13 +59,13 @@ namespace swarm {
             /// \return Media type defining content-type
             MediaType mediaType() const { return mediaType_; }
 
-            /// \brief Content length, negative for chuncked stream
-            /// \return
-            HTTPStream::streamLength length() const { return length_; }
+            /// \brief Content length
+            /// \return Body length or negative for chuncked stream
+            streamLength length() const { return length_; }
 
             /// \brief Stream containing data
             /// \return Stream
-            HTTPStream &stream() { return *stream_; }
+            STREAM &stream() { return *stream_; }
         };
     }
 }

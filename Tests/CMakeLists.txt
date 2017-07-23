@@ -15,6 +15,7 @@ add_executable(${PROJECT_NAME}Tests
     main.cxx
     swarm/http/message/HTTPRequestTest.cxx
     swarm/http/message/HTTPResponseTest.cxx
+    swarm/http/mapping/ProviderTest.cxx
 )
 target_link_libraries(${PROJECT_NAME}Tests
     ${PROJECT_NAME}
@@ -32,6 +33,7 @@ target_include_directories(
         "../Sources"
         ${cxx-log_INCLUDE_DIR}
         ${swarm-commons_INCLUDE_DIR}
+        ${swarm-mapping_INCLUDE_DIR}
         ${PROJECT_SOURCE_DIR}/Dependencies/volatile/${CATCH_VERSION} # catch directory
 )
 
